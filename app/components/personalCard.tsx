@@ -5,7 +5,7 @@ import jeremy from "@/public/image-jeremy.png";
 
 export default function personalCard() {
   return (
-    <div className="flex flex-row gap-4 items-center bg-blue-primary py-9 px-16 rounded-xl">
+    <div className="flex flex-row gap-4 items-center bg-blue-primary py-9 px-16 rounded-xl w-[90vw]">
       <div className="bg-white rounded-full p-0.5">
         <Image src={jeremy} width={55} alt="my image" placeholder="blur"/>
       </div>
