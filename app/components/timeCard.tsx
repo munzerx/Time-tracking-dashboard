@@ -11,17 +11,32 @@ import study from "@/public/icon-study.svg";
 import work from "@/public/icon-work.svg";
 
 export default function timeCard(props: {
+  title: string;
   bg_color: string;
-  catagory: string;
   current: number;
   previous: number;
 }) {
+  let picture = props.title === "Work" ? work :
+  props.title === "Play" ? play :
+  props.title === "Study" ? study :
+  props.title === "Exercise" ? exercise :
+  props.title === "Social" ? social :
+  props.title === "Self Care" ? selfCare : play
+  ;
+
   return (
     <div
       className={` ${props.bg_color} relative pt-10 flex flex-row gap-4 items-center rounded-xl w-[90vw]`}
     >
-      <Image src={exercise} alt="" className="absolute top-0 right-0" />
-      {<Details catagory={props.catagory} current={props.current} previous={props.previous} />}
+      <Image src={picture} alt="" className="absolute top-0 right-0" />
+      {
+        <Details
+          key={props.title}
+          title={props.title}
+          current={props.current}
+          previous={props.previous}
+        />
+      }
     </div>
   );
 }
