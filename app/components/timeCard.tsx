@@ -1,8 +1,7 @@
 import React from "react";
 import Image from "next/image";
 
-import Details from "./timeCardDetails";
-import ellipsis from "@/public/icon-ellipsis.svg";
+
 import exercise from "@/public/icon-exercise.svg";
 import play from "@/public/icon-play.svg";
 import selfCare from "@/public/icon-self-care.svg";
@@ -16,27 +15,35 @@ export default function timeCard(props: {
   current: number;
   previous: number;
 }) {
-  let picture = props.title === "Work" ? work :
-  props.title === "Play" ? play :
-  props.title === "Study" ? study :
-  props.title === "Exercise" ? exercise :
-  props.title === "Social" ? social :
-  props.title === "Self Care" ? selfCare : play
-  ;
-
+  let picture =
+    props.title === "Work"
+      ? work
+      : props.title === "Play"
+      ? play
+      : props.title === "Study"
+      ? study
+      : props.title === "Exercise"
+      ? exercise
+      : props.title === "Social"
+      ? social
+      : props.title === "Self Care"
+      ? selfCare
+      : play;
   return (
     <div
-      className={` ${props.bg_color} relative pt-10 flex flex-row gap-4 items-center rounded-xl w-[90vw]`}
+      className={` ${props.bg_color} relative pt-12 flex flex-row gap-4 items-center rounded-xl w-[90vw] md:w-auto md:h-full md:col-span-1 md:row-span-1`}
     >
       <Image src={picture} alt="" className="absolute top-0 right-0" />
-      {
-        <Details
-          key={props.title}
-          title={props.title}
-          current={props.current}
-          previous={props.previous}
-        />
-      }
+      <div className="relative flex flex-row justify-between bg-blue-dark p-8 capitalize rounded-xl w-[100%] md:-bottom-2 md:flex-col md:text-left">
+        <section className="flex flex-col gap-2 text-left">
+          <p className="font-bold">{props.title}</p>
+          <p className="text-4xl font-light">{props.current}hrs</p>
+        </section>
+        <section className="text-grey flex flex-col gap-4 text-center">
+          <p className="text-right md:hidden">...</p>
+          <p>last week - {props.previous}hrs</p>
+        </section>
+      </div>
     </div>
   );
 }
