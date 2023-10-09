@@ -11,15 +11,15 @@ export default function Home() {
 
   return (
     <main className="bg-blue-darker flex flex-col w-screen px-1 py-20 gap-4 text-white items-center md:h-screen md:justify-center">
-      <div className="flex flex-col gap-4 items-center md:grid md:grid-cols-4 md:grid-rows-2 md:w-[50%] md:h-[70%]">
+      <div className="flex flex-col gap-4 items-center md:grid md:grid-cols-4 md:grid-rows-2 md:w-[50%] md:h-[60%]">
         <div className="bg-blue-dark rounded-xl md:col-span-1 md:row-span-2 md:h-full">
           <PersonalCard />
-          <section className="flex flex-row justify-around text-center py-6 capitalize text-blue-desaturated md:flex-col md:text-left md:px-6 md:justify-between md:cursor-pointer md:h-1/3">
+          <section className="flex flex-row justify-around text-center py-6 capitalize text-blue-desaturated md:flex-col md:text-left md:px-6 md:justify-between md:cursor-pointer md:h-1/3 ">
             {["daily", "weekly", "monthly"].map((category) => (
               <p
                 key={category}
                 onClick={() => setCatagorySelected(category)}
-                className={`${
+                className={` hover:text-white ${
                   catagorySelected === category
                     ? "text-white"
                     : "text-blue-desaturated"

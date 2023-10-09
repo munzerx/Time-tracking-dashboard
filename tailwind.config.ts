@@ -14,6 +14,7 @@ const config: Config = {
         'dark':'#1c1f4a',
         'darker':'#0f1424',
         'desaturated':'#6f76c8',
+        'hover':'#34397b',
       },
       'red':{
         'work':'#ff8c66',
